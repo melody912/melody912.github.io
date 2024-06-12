@@ -1,0 +1,129 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="天玉館_webform.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="zh">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>天玉館</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <style>
+        .divider {
+    border-top: 1px solid #ccc;
+    margin: 20px 0; /* 調整分隔線與文字的間距 */
+}
+        body {
+            background-image: url('<%= ResolveUrl("~/Images/底圖.jpg") %>');
+            background-size: cover; /* 自動調整背景圖大小以覆蓋整個頁面 */
+            background-repeat: no-repeat; /* 防止背景圖重複 */
+            background-attachment: fixed; /* 使背景圖固定不隨滾動而移動 */
+        }
+        .fixed-footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: transparent;
+            color: white;
+        }
+        .fixed-footer .nav-link {
+            color: white;
+        }
+        .fixed-footer .nav-link span {
+            font-size: 22px;
+        }
+        .footer-info {
+            text-align: center;
+            font-size: 20px;
+        }
+        .footer-info span {
+            display: block;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark" style="background-color: black;">
+            <div class="container">
+                <a class="navbar-brand" runat="server" href="~/">
+                    <img src="天玉館(誠玉).png" alt="logo" style="max-width: 550px; max-height: 550px;" />
+                </a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="切換導覽" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1" style="justify-content: flex-end;">
+                        <li class="nav-item">
+                            <a class="nav-link" runat="server" href="~/Company">
+                                <span style="font-size: 24px;">公司簡介</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" runat="server" href="~/Teacher">
+                                <span style="font-size: 24px;">老師介紹</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" runat="server" href="~/Contact">
+                                <span style="font-size: 24px;">聯絡我們</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+        </div>
+            <footer class="fixed-footer">
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm">
+                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-center">
+                    <ul class="navbar-nav flex-grow-1" style="color: white; text-align: center;">
+                        
+                    </ul>
+                </div>
+            </nav>
+            <div class="footer-info">
+                <br />
+                <span style="color:white;font-size: 22px">台北市士林區中山北路六段200號一樓</span>
+                <span style="color:white;font-size: 22px">1F, No. 200, Section 6, Zhongshan North Road, Shilin District, Taipei City</span>
+                <span style="color:white;font-size: 22px">Tel : 886-2-2838-3535  |   Fax : 886-2-2838-1515</span>
+            </div>
+        </footer>
+    </form>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+    </asp:PlaceHolder>
+</body>
+</html>
